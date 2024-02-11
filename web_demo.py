@@ -16,11 +16,14 @@ import logging
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.utils import logging
 from transformers.generation.utils import LogitsProcessorList, StoppingCriteriaList
-
+from openxlab.model import download
 from tools.transformers.interface import generate_interactive, GenerationConfig
 
 logger = logging.get_logger(__name__)
 
+
+download(model_repo='pranerd/xtuner_lesson3_model', 
+        output='hf_merge')
 
 def on_btn_click():
     del st.session_state.messages
